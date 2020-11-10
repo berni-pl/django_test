@@ -16,7 +16,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+STATIC_DIR=os.path.join(BASE_DIR,'assets')
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 MEDIA_DIR=os.path.join(BASE_DIR,'media')
 
 
@@ -24,12 +25,12 @@ MEDIA_DIR=os.path.join(BASE_DIR,'media')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2wbb_chc5zlp@vv9g9%ic9^_+h!vl*g%wf+@$(17u=a$#bbr2k'
-
+#SECRET_KEY = '2wbb_chc5zlp@vv9g9%ic9^_+h!vl*g%wf+@$(17u=a$#bbr2k'
+SECRET_KEY = os.environ.get('SECRET_KEY_DJ')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.myberniwebsite.xyz','localhost','159.89.0.160']
 
 
 # Application definition
@@ -133,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS=[STATIC_DIR,]
 
 #MEDIA:
